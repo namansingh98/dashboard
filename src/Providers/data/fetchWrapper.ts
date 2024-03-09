@@ -19,7 +19,7 @@ return await fetch(url,{
 })
 }
 
-const getGraphQLErrors = (body:Record="errors", GraphQLFormattedError[] | undefined>;)
+const getGraphQLErrors = (body:Record<"errors", GraphQLFormattedError[] | undefined>);
 Error | null => {
      if (!body) {
         return {
