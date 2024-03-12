@@ -1,6 +1,10 @@
 import { GraphQLClient } from "@refinedev/nestjs-query";
-export const API_URL = "https://api.crm.refine.dev";
 import { fetchwarpper } from "./fetchWrapper";
+import { createClient } from "graphql-ws";
+
+export const API_URL = "https://api.crm.refine.dev";
+export  const WS_client = 'wss://api.crm.refine.dev/graphql'
+export const API_BASE_URL='https://api.crm.refine.dev'
 
 export const client = new GraphQLClient(API_URL,{
 fetch: (url: string, options: RequestInit)=> {
@@ -10,3 +14,7 @@ return fetchwarpper(url,options);
         return Promise.reject(error as Error);
     }
 }})
+export const wsClient =typeof  window !== "undefined"
+? createClient({
+    url:
+})
