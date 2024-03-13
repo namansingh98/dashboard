@@ -16,5 +16,13 @@ return fetchwarpper(url,options);
 }})
 export const wsClient =typeof  window !== "undefined"
 ? createClient({
-    url:
+    url:WS_client,
+connectionParams:() =>{
+    const accessToken=localStorage.getItem('access_token');
+    return {
+        headers:{
+            
+        }
+    }
+},
 })
