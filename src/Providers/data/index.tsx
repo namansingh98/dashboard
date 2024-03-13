@@ -1,5 +1,10 @@
-import { GraphQLClient } from "@refinedev/nestjs-query";
+import graphqlDataProvider, 
+{ GraphQLClient , 
+    liveProvider as graphqlProvider} from "@refinedev/nestjs-query";
 import { fetchwarpper } from "./fetchWrapper";
+
+
+
 import { createClient } from "graphql-ws";
 
 export const API_URL = "https://api.crm.refine.dev";
@@ -21,8 +26,17 @@ connectionParams:() =>{
     const accessToken=localStorage.getItem('access_token');
     return {
         headers:{
-            
+           Authorization:`Bearer ${accessToken}` 
         }
     }
-},
-})
+}
+}
+):undefined
+
+export const dataProvider = graphqlDataProvider(client)
+export const liveProvider =wsClient? graphqlProvider(wsClient):undefined
+
+
+
+
+
