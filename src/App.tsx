@@ -20,6 +20,12 @@ import routerBindings, {
 import { App as AntdApp } from "antd";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { authProvider, dataProvider,liveProvider } from "./Providers";
+
+
+
+import {Home,ForgotPassword,Login, Register} from "./pages"
+
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -53,6 +59,8 @@ const App = () => {
                     </Authenticated>
                   }
                 >
+
+                <Route index element={<Home/>}/>
                   {/* <Route index element={<DashboardPage />} /> */}
 
                   <Route
