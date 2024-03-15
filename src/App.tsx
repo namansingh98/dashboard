@@ -1,4 +1,4 @@
-import { Authenticated, GitHubBanner, Refine } from "@refinedev/core";
+import { Authenticated, GitHubBanner, Refine, WelcomePage } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 
 import {
@@ -47,44 +47,50 @@ const App = () => {
               }}
             >
               <Routes>
-                <Route
+                {/* <Route
                   element={
                     <Authenticated
                       key="authenticated-layout"
                       fallback={<CatchAllNavigate to="/login" />}
                     >
-                      {/* <Layout> */}
+                      <Layout>
                         <Outlet />
-                      {/* </Layout> */}
+                      </Layout>
                     </Authenticated>
                   }
-                >
+                > */}
 
+                <Route index element={<WelcomePage/>}/>
                 <Route index element={<Home/>}/>
+                <Route path={"/register"} element={<Register/>}/>
+                <Route path={"/login"} element={<Login/>}/>
+                <Route path={"/forgot-password"} element={<ForgotPassword/>}/>
                   {/* <Route index element={<DashboardPage />} /> */}
 
-                  <Route
+                  {/* <Route
                     path="/tasks"
+                 
                     element={
-                      // <TasksListPage>
-                        <Outlet />
-                      // </TasksListPage>
-                    }
-                  >
+                  */}
+                      {/* <TasksListPage>
+                         // <Outlet />
+                       </TasksListPage>
+                    } */}
+                  {/* > */}
                     {/* <Route path="new" element={<TasksCreatePage />} /> */}
                     {/* <Route path="edit/:id" element={<TasksEditPage />} /> */}
-                  </Route>
+                  {/* </Route> */}
 
-                  <Route path="/companies">
+                  {/* <Route path="/companies"> */}
                     {/* <Route index element={<CompanyListPage />} /> */}
                     {/* <Route path="new" element={<CompanyCreatePage />} /> */}
                     {/* <Route path="edit/:id" element={<CompanyEditPage />} /> */}
-                  </Route>
+                  {/* </Route>
 
                   <Route path="*" element={<ErrorComponent />} />
-                </Route>
+                </Route> */}
 
-                <Route
+                {/* <Route
                   element={
                     <Authenticated
                       key="authenticated-auth"
@@ -92,10 +98,10 @@ const App = () => {
                     >
                       <NavigateToResource resource="dashboard" />
                     </Authenticated>
-                  }
-                >
+                  } */}
+                {/* > */}
                   {/* <Route path="/login" element={<LoginPage />} /> */}
-                </Route>
+                {/* </Route> */}
               </Routes>
               <UnsavedChangesNotifier />
               <DocumentTitleHandler />
